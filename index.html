@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Meta tags and page title -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jigsaw.io - Remote Job Board</title>
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="./css/style.css">
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-4Q6Gf2aSP4eDXB8Miphtr37CMZZQ5oXLH2yaXMJ2w8e2ZtHTl7GptT4jmndRuHDT" crossorigin="anonymous">
+    <!-- Bootstrap JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-j1CDi7MgGQ12Z7Qab0qlWQ/Qqz24Gc6BM0thvEMVjHnfYGF0rmFCozFSxQBxwHKO"
+        crossorigin="anonymous"></script>
+    <!-- Remixicon for icons -->
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css" rel="stylesheet" />
+</head>
+
+<body>
+    <!-- Header and Navigation Bar -->
+    <header>
+        <nav class="navbar navbar-expand-lg custom-navbar-dark sticky-top">
+            <div class="container-fluid d-flex align-items-center">
+                <div class="d-flex align-items-center">
+                    <!-- Logo and Brand -->
+                    <a class="navbar-brand d-flex align-items-center me-3" href="#">
+                        <img src="Images/Jigsaw logo.png" alt="Jigsaw.io Logo" class="logo-icon me-2" style="height: 32px;"> <h1 class="mb-0 fs-4">Jigsaw.io</h1>
+                    </a>
+                    <!-- Recruiter Button (visible on large screens) -->
+                    <a href="#job-listings-section" class="btn btn-outline-light rounded-pill px-3 py-2 me-3 recruiter-button d-none d-lg-block">Remote job-listings <i class="ri-arrow-right-s-line"></i></a>
+                </div>
+
+                <!-- Navbar Toggler for mobile -->
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Navigation Links -->
+                <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                    <ul class="navbar-nav mb-2 mb-lg-0 me-auto main-nav-links">
+                        <li class="nav-item">
+                            <a class="nav-link" href="#companies-section">Companies</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#talent-section">Talent</a>
+                        </li>
+                      
+                        <!-- Dropdown for More Links -->
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                More
+                            </a>
+                            <ul class="dropdown-menu dropdown-menu-dark">
+                                <li><a class="dropdown-item" href="#about-us-section">About Us</a></li>
+                                <li><a class="dropdown-item" href="#contact">Contact</a></li>
+                                <li><hr class="dropdown-divider"></li>
+                                
+                            </ul>
+                        </li>
+                    </ul>
+
+                    <!-- User Action Buttons -->
+                    <div class="d-flex align-items-center ms-auto user-actions">
+                        <button class="btn btn-dark rounded-pill px-3 py-2 me-2 login-button" data-bs-toggle="modal" data-bs-target="#loginModal">
+                            <i class="ri-user-3-fill me-1"></i> Log In
+                        </button>
+                        <button class="btn action-circle-button me-2 orange-bg" title="Notifications">
+                            <i class="ri-notification-3-fill"></i>
+                        </button>
+                        <button class="btn action-circle-button blue-bg" id="navPostJob" title="Post a Job">
+                            <i class="ri-add-line"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Content Container -->
+    <main class="container" id="app-container">
+        <!-- Job Listings Section -->
+        <section id="job-listings-section" class="active-section">
+            <h2>Remote Job Listings</h2>
+            <!-- Skill Filter Dropdown -->
+            <div id="filters">
+                <label for="skill-filter">Filter by Skill:</label>
+                <select id="skill-filter">
+                    <option value="">All Skills</option>
+                    <option value="Web Development">Web Development</option>
+                    <option value="React">React</option>
+                    <option value="JavaScript">JavaScript</option>
+                    <option value="Node.js">Node.js</option>
+                    <option value="Vue.js">Vue.js</option>
+                    <option value="Full Stack">Full Stack</option>
+                    <option value="Graphic Design">Graphic Design</option>
+                    <option value="UI/UX">UI/UX</option>
+                    <option value="Figma">Figma</option>
+                    <option value="Adobe XD">Adobe XD</option>
+                    <option value="Data Analysis">Data Analysis</option>
+                    <option value="Python">Python</option>
+                    <option value="Machine Learning">Machine Learning</option>
+                    <option value="SQL">SQL</option>
+                    <option value="Content Creation">Content Creation</option>
+                    <option value="Technical Writing">Technical Writing</option>
+                    <option value="Documentation">Documentation</option>
+                </select>
+            </div>
+            <!-- Job Listings Container -->
+            <div id="job-listings-container">
+                <p id="loading-indicator">Aligning Fragments...</p>
+            </div>
+        </section>
+
+        <!-- Companies Section -->
+        <section id="companies-section" class="py-5 bg-white">
+            <div class="container">
+                <h2 class="mb-4 text-center">Featured Companies</h2>
+                <p class="text-center">Discover top companies hiring for remote positions.</p>
+                <!-- Company cards will be dynamically inserted here -->
+                <div id="companies-list" class="row justify-content-center"></div>
+                <div class="row">
+                    <div class="col-md-4 text-center mb-4">
+                        <a href="https://www.brit.co/" target="_blank">
+                            <img src="Images/Brit and co logo.png" alt="Brit + Co" class="img-fluid company-logo mb-2">
+                        </a>
+                        <div>
+                            <a href="https://www.brit.co/careers/" target="_blank" class="btn btn-primary btn-sm me-2">Join Now</a>
+                            <a href="mailto:careers@brit.co" class="btn btn-outline-secondary btn-sm">Submit CV</a>
+                        </div>
+                    </div>
+                    <div class="col-md-4 text-center mb-4">
+                        <a href="https://gusto.com/" target="_blank">
+                            <img src="Images/gustologo.png" alt="Gusto" class="img-fluid company-logo mb-2">
+                        </a>
+                        <div>
+                            <a href="https://gusto.com/about/careers" target="_blank" class="btn btn-primary btn-sm me-2">Join Now</a>
+                            <a href="mailto:careers@gusto.com" class="btn btn-outline-secondary btn-sm">Submit CV</a>
+                        </div>
+                    </div>
+                    <div class="col-md-4 text-center mb-4">
+                        <a href="https://hinge.co/" target="_blank">
+                            <img src="Images/hingelogo.png" alt="Hinge" class="img-fluid company-logo mb-2">
+                        </a>
+                        <div>
+                            <a href="https://hinge.co/careers" target="_blank" class="btn btn-primary btn-sm me-2">Join Now</a>
+                            <a href="mailto:careers@hinge.co" class="btn btn-outline-secondary btn-sm">Submit CV</a>
+                        </div>
+                    </div>
+                    <div class="col-md-4 text-center mb-4">
+                        <a href="https://ionic.io/appflow" target="_blank">
+                            <img src="Images/Appflow logo.png" alt="Appflow" class="img-fluid company-logo mb-2">
+                        </a>
+                        <div>
+                            <a href="https://ionic.io/login?source=appflow&product=appflow" target="_blank" class="btn btn-primary btn-sm me-2">Join Now</a>
+                            <a href="mailto:careers@appflow.com" class="btn btn-outline-secondary btn-sm">Submit CV</a>
+                        </div>
+                    </div>
+                    <div class="col-md-4 text-center mb-4">
+                        <a href="https://www.cloudops.com/" target="_blank">
+                            <img src="Images/CloudOps Logo.png" alt="CloudOps" class="img-fluid company-logo mb-2">
+                        </a>
+                        <div>
+                            <a href="https://www.cloudops.com/contact-us/" target="_blank" class="btn btn-primary btn-sm me-2">Join Now</a>
+                            <a href="mailto:careers@cloudops.com" class="btn btn-outline-secondary btn-sm">Submit CV</a>
+                        </div>
+                    </div>
+                    <div class="col-md-4 text-center mb-4">
+                        <a href="https://www.digital-forge.io/" target="_blank">
+                            <img src="Images/Digital Forge Logo.png" alt="Digital Forge" class="img-fluid company-logo mb-2">
+                        </a>
+                        <div>
+                            <a href="https://www.digital-forge.io/jobs" target="_blank" class="btn btn-primary btn-sm me-2">Join Now</a>
+                            <a href="mailto:careers@digitalforge.com" class="btn btn-outline-secondary btn-sm">Submit CV</a>
+                        </div>
+                    </div>
+                    <div class="col-md- text-center mb-4">
+                        <a href="https://innovatetech.com/" target="_blank">
+                            <img src="Images/InnovateTech Logo.png" alt="InnovateTech" class="img-fluid company-logo mb-2">
+                        </a>
+                        <div>
+                            <a href="https://innovatetech.com/contact-us/" target="_blank" class="btn btn-primary btn-sm me-2">Join Now</a>
+                            <a href="mailto:careers@innovatetech.com" class="btn btn-outline-secondary btn-sm">Submit CV</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+          <hr>
+        <!-- Talent Section -->
+        <section id="talent-section" class="py-5 bg-light">
+            <div class="container">
+                <!-- Add talent profiles or call-to-action here -->
+                      <section id="skills" class="container my-5">
+            <h2 class="text-center mb-4">Skills</h2>
+            <ul class="skills-list list-unstyled d-flex flex-wrap justify-content-center">
+                <li class="p-3 m-2 border rounded shadow-sm skill-item" data-skill="HTML5" style="cursor: pointer;"><i class="ri-html5-fill me-2"></i> HTML5</li>
+                <li class="p-3 m-2 border rounded shadow-sm skill-item" data-skill="CSS3" style="cursor: pointer;"><i class="ri-css3-fill me-2"></i> CSS3</li>
+                <li class="p-3 m-2 border rounded shadow-sm skill-item" data-skill="JavaScript" style="cursor: pointer;"><i class="ri-javascript-fill me-2"></i> JavaScript (ES6+)
+                </li>
+                <li class="p-3 m-2 border rounded shadow-sm skill-item" data-skill="React" style="cursor: pointer;"><i class="ri-reactjs-fill me-2"></i> React.js</li>
+                <li class="p-3 m-2 border rounded shadow-sm skill-item" data-skill="Node.js" style="cursor: pointer;"><i class="ri-nodejs-fill me-2"></i> Node.js</li>
+                <li class="p-3 m-2 border rounded shadow-sm skill-item" data-skill="MongoDB" style="cursor: pointer;"><i class="ri-database-2-fill me-2"></i> MongoDB</li>
+                <li class="p-3 m-2 border rounded shadow-sm skill-item" data-skill="PostgreSQL" style="cursor: pointer;"><i class="ri-database-2-fill me-2"></i> PostgreSQL</li>
+                <li class="p-3 m-2 border rounded shadow-sm skill-item" data-skill="Git" style="cursor: pointer;"><i class="ri-git-branch-fill me-2"></i> Git & GitHub</li>
+                <li class="p-3 m-2 border rounded shadow-sm skill-item" data-skill="REST APIs" style="cursor: pointer;"><i class="ri-terminal-box-fill me-2"></i> REST APIs</li>
+                <li class="p-3 m-2 border rounded shadow-sm skill-item" data-skill="Cloud Deployment" style="cursor: pointer;"><i class="ri-cloud-fill me-2"></i> Cloud Deployment</li>
+            </ul>
+        </section>
+                 <p class="text-center">Showcase your skills and get discovered by leading remote employers.</p>
+            </div>
+            <hr>
+        </section>
+
+        <!-- Job Details Section (hidden by default) -->
+        <section id="job-details-section" class="hidden-section">
+            <button id="backToJobsBtn" class="back-button">← Back to Listings</button>
+            <div id="job-detail-content">
+                </div>
+        </section>
+
+        <!-- Post Job Section (hidden by default) -->
+        <section id="post-job-section" class="hidden-section">
+            <h2>Post a New Remote Job</h2>
+            <form id="job-post-form">
+                <label for="jobTitle">Job Title:</label>
+                <input type="text" id="jobTitle" name="jobTitle" required>
+
+                <label for="companyName">Company Name:</label>
+                <input type="text" id="companyName" name="companyName" required>
+
+                <label for="jobExcerpt">Job Excerpt (short description):</label>
+                <textarea id="jobExcerpt" name="jobExcerpt" rows="3" required></textarea>
+
+                <label for="jobDescription">Full Job Description (HTML allowed):</label>
+                <textarea id="jobDescription" name="jobDescription" rows="10" required></textarea>
+
+                <label for="jobIndustry">Skills/Talents (comma-separated, e.g., JavaScript, React):</label>
+                <input type="text" id="jobIndustry" name="jobIndustry" placeholder="e.g., JavaScript, React, CSS">
+
+                <label for="jobLevel">Job Level:</label>
+                <select id="jobLevel" name="jobLevel">
+                    <option value="Entry-Level">Entry-Level</option>
+                    <option value="Junior">Junior</option>
+                    <option value="Mid-Level">Mid-Level</option>
+                    <option value="Senior">Senior</option>
+                    <option value="Lead">Lead</option>
+                    <option value="Experienced">Experienced</option>
+                </select>
+
+                <div class="salary-inputs">
+                    <label for="salaryMin">Minimum Salary:</label>
+                    <input type="number" id="salaryMin" name="salaryMin" min="0">
+
+                    <label for="salaryMax">Maximum Salary:</label>
+                    <input type="number" id="salaryMax" name="salaryMax" min="0">
+                </div>
+
+                <label for="salaryCurrency">Currency:</label>
+                <input type="text" id="salaryCurrency" name="salaryCurrency" value="USD" required>
+
+                <label for="salaryPeriod">Salary Period:</label>
+                <select id="salaryPeriod" name="salaryPeriod">
+                    <option value="yearly">Yearly</option>
+                    <option value="monthly">Monthly</option>
+                    <option value="hourly">Hourly</option>
+                </select>
+
+                <label for="applicationUrl">Application URL:</label>
+                <input type="url" id="applicationUrl" name="url">
+
+                <button type="submit">Post Job</button>
+            </form>
+            <p id="post-job-message" class="message-box"></p>
+        </section>
+    </main>
+
+    <!-- About Us Section -->
+    <section id="about-us-section" class="py-5 bg-light">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-10 text-center">
+                    <h2 class="mb-4">About Jigsaw.io</h2>
+                    <p class="lead">
+                        Jigsaw.io is a remote job board dedicated to connecting talented professionals with top companies offering flexible, remote opportunities worldwide.
+                        Our mission is to make remote work accessible and efficient for everyone, empowering both job seekers and employers to thrive in a digital-first world.
+                    </p>
+                    <p>
+                        Whether you're looking for your next remote role or seeking exceptional talent for your team, Jigsaw.io provides a seamless platform to bridge the gap and align the right fragments for success.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer class="bg-dark text-light py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 text-center" id="contact">
+                    <h2 class="mb-4">Contact</h2>
+                    <p class="mb-2">
+                        <i class="ri-mail-fill me-2"></i> <a href="mailto:contact@jigsaw.io"
+                            class="text-light">contact@jigsaw.io</a>
+                    </p>
+                    <p class="mb-2">
+                        <i class="ri-linkedin-box-fill me-2"></i> <a href="https://linkedin.com/company/jigsawio"
+                            target="_blank" class="text-light">LinkedIn</a>
+                    </p>
+                    <p>
+                        <i class="ri-github-fill me-2"></i> <a href="https://github.com/jigsawio" target="_blank"
+                            class="text-light">GitHub</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Login Modal -->
+    <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <form id="loginForm" autocomplete="off">
+            <div class="modal-header">
+              <h5 class="modal-title" id="loginModalLabel">User Login</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <div class="mb-3">
+                <label for="loginEmail" class="form-label">Email address</label>
+                <input type="email" class="form-control" id="loginEmail" name="email" required autocomplete="username">
+              </div>
+              <div class="mb-3">
+                <label for="loginPassword" class="form-label">Password</label>
+                <input type="password" class="form-control" id="loginPassword" name="password" required autocomplete="current-password">
+              </div>
+              <div id="loginError" class="text-danger mb-2" style="display:none;"></div>
+            </div>
+            <div class="modal-footer">
+              <button type="submit" class="btn btn-primary w-100">Log In</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <!-- Main JavaScript File -->
+    <script src="./src/script.js"></script>
+    
+    
+</body>
+</html>

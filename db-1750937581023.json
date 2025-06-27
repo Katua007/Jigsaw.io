@@ -1,0 +1,99 @@
+{
+  "jobs": [
+    {
+      "id": "1",
+      "jobTitle": "Senior Frontend Engineer (React)",
+      "companyName": "InnovateTech",
+      "jobGeo": "Remote",
+      "jobExcerpt": "Seeking an experienced React developer to build scalable web applications.",
+      "jobDescription": "<p>...</p>",
+      "jobIndustry": [
+        "Web Development",
+        "React"
+      ],
+      "jobLevel": "Senior",
+      "salaryMin": 90000,
+      "salaryMax": 120000,
+      "salaryCurrency": "USD",
+      "salaryPeriod": "yearly",
+      "pubDate": "2025-06-24",
+      "url": "https://innovatetech.com/careers/senior-frontend-engineer-react"
+    },
+    {
+      "id": "2",
+      "jobTitle": "Full Stack Developer (Node.js/Vue.js)",
+      "companyName": "Digital Forge",
+      "jobGeo": "Remote",
+      "jobExcerpt": "Build robust web applications end-to-end with Node.js and Vue.js.",
+      "jobDescription": "<p>...</p>",
+      "jobIndustry": [
+        "Web Development",
+        "Node.js"
+      ],
+      "jobLevel": "Mid-Level",
+      "salaryMin": 75000,
+      "salaryMax": 100000,
+      "salaryCurrency": "USD",
+      "salaryPeriod": "yearly",
+      "pubDate": "2025-06-22",
+      "url": "https://digitalforge.io/jobs/fullstack-developer"
+    },
+    {
+      "id": "3",
+      "jobTitle": "UI/UX Designer",
+      "companyName": "Pixel Perfect Agency",
+      "jobGeo": "Remote",
+      "jobExcerpt": "Craft intuitive and beautiful user interfaces for diverse projects.",
+      "jobDescription": "<p>...</p>",
+      "jobIndustry": [
+        "Graphic Design",
+        "UI/UX"
+      ],
+      "jobLevel": "Experienced",
+      "salaryMin": 60000,
+      "salaryMax": 85000,
+      "salaryCurrency": "USD",
+      "salaryPeriod": "yearly",
+      "pubDate": "2025-06-20",
+      "url": "https://pixelperfect.co/careers/ui-ux-designer"
+    },
+    {
+      "id": "4",
+      "jobTitle": "Data Scientist",
+      "companyName": "Insight Analytics",
+      "jobGeo": "Remote",
+      "jobExcerpt": "Analyze complex datasets and build predictive models.",
+      "jobDescription": "<p>...</p>",
+      "jobIndustry": [
+        "Data Analysis",
+        "Python"
+      ],
+      "jobLevel": "Mid-Level",
+      "salaryMin": 80000,
+      "salaryMax": 110000,
+      "salaryCurrency": "USD",
+      "salaryPeriod": "yearly",
+      "pubDate": "2025-06-18",
+      "url": "https://insightanalytics.ai/jobs/data-scientist"
+    },
+    {
+      "id": "5",
+      "jobTitle": "Technical Writer",
+      "companyName": "DocuWrite Solutions",
+      "jobGeo": "Remote",
+      "jobExcerpt": "Create clear and concise technical documentation for software products.",
+      "jobDescription": "<p>...</p>",
+      "jobIndustry": [
+        "Content Creation",
+        "Technical Writing"
+      ],
+      "jobLevel": "Junior",
+      "salaryMin": 50000,
+      "salaryMax": 70000,
+      "salaryCurrency": "USD",
+      "salaryPeriod": "yearly",
+      "pubDate": "2025-06-15",
+      "url": "https://docuwritesolutions.com/careers/technical-writer"
+    }
+  ]
+}

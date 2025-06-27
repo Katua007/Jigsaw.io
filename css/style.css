@@ -1,0 +1,577 @@
+/* Basic Resets & Body (Keep these as they are) */
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f0f2f5;
+    color: #333;
+    line-height: 1.6;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 1rem;
+}
+
+/* --- Custom Navbar Styles (Jobicy inspired using Bootstrap) --- */
+.custom-navbar-dark {
+    background-color: #212836 !important; /* Specific dark background */
+    padding: 0.8rem 0; /* Match previous padding */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+.custom-navbar-dark .navbar-brand {
+    color: white !important; /* Ensure brand text is white */
+}
+
+.custom-navbar-dark .navbar-brand .logo-icon {
+    font-size: 2.2rem;
+    color: #007bff; /* Jigsaw.io blue */
+    line-height: 1; /* Align icon better */
+}
+
+.custom-navbar-dark .navbar-brand h1 {
+    font-weight: 700;
+    margin-left: 0.5rem; /* Space between icon and text */
+}
+
+/* Recruiter button */
+.recruiter-button {
+    background-color: #343a40 !important; /* Darker grey */
+    color: white !important;
+    border: none !important;
+    font-size: 0.9rem;
+    padding: 0.6rem 1.2rem !important;
+}
+.recruiter-button:hover {
+    background-color: #495057 !important;
+    color: white !important;
+}
+
+/* Main nav links */
+.main-nav-links .nav-item .nav-link {
+    color: white !important; /* Force white text */
+    font-size: 0.95rem;
+    font-weight: 500;
+    transition: color 0.2s ease;
+}
+
+.main-nav-links .nav-item .nav-link:hover,
+.main-nav-links .nav-item .nav-link.active {
+    color: #007bff !important; /* Blue on hover/active */
+}
+
+/* Dropdown menu styling for "More" */
+.custom-navbar-dark .dropdown-menu {
+    background-color: #2b323f !important; /* Darker background for dropdown */
+    border: none !important;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
+}
+
+.custom-navbar-dark .dropdown-item {
+    color: white !important;
+    transition: background-color 0.2s ease;
+}
+
+.custom-navbar-dark .dropdown-item:hover,
+.custom-navbar-dark .dropdown-item:focus {
+    background-color: #007bff !important; /* Blue hover for dropdown items */
+    color: white !important;
+}
+.custom-navbar-dark .dropdown-divider {
+    border-top: 1px solid rgba(255, 255, 255, 0.1) !important;
+}
+
+
+/* User actions group */
+.user-actions {
+    gap: 0.75rem; /* Spacing between elements in this group */
+}
+
+/* Login button */
+.login-button {
+    background-color: #343a40 !important; /* Darker grey */
+    color: white !important;
+    border: none !important;
+    font-size: 0.9rem;
+    padding: 0.6rem 1.2rem !important;
+}
+.login-button:hover {
+    background-color: #495057 !important;
+    color: white !important;
+}
+
+/* Circular action buttons */
+.action-circle-button {
+    border-radius: 50% !important;
+    width: 38px !important;
+    height: 38px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    font-size: 1.2rem !important;
+    color: white !important;
+    border: none !important;
+    flex-shrink: 0 !important; /* Prevent shrinking */
+    transition: background-color 0.3s ease;
+}
+
+.orange-bg {
+    background-color: #fd7e14 !important; /* Jobicy orange */
+}
+.orange-bg:hover {
+    background-color: #e66c0d !important;
+}
+
+.blue-bg {
+    background-color: #007bff !important; /* Jobicy blue */
+}
+.blue-bg:hover {
+    background-color: #0056b3 !important;
+}
+
+/* Toggler icon color */
+.custom-navbar-dark .navbar-toggler {
+    border-color: rgba(255, 255, 255, 0.3) !important;
+}
+.custom-navbar-dark .navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255, 255, 255, 0.8%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e") !important;
+}
+
+
+/* Responsive adjustments for the custom navbar */
+@media (max-width: 991.98px) { /* Adjust breakpoint for 'lg' as per Bootstrap */
+    .custom-navbar-dark .container-fluid {
+        flex-wrap: wrap; /* Allow items to wrap */
+        justify-content: center; /* Center items when wrapped */
+    }
+    .custom-navbar-dark .navbar-collapse {
+        width: 100%; /* Take full width when collapsed */
+    }
+    .custom-navbar-dark .main-nav-links {
+        margin-right: 0 !important; /* Remove me-auto */
+        margin-top: 1rem; /* Space from top */
+        flex-direction: column; /* Stack nav links vertically */
+        align-items: center;
+        width: 100%;
+    }
+    .custom-navbar-dark .user-actions {
+        margin-top: 1rem; /* Space from main nav */
+        width: 100%;
+        justify-content: center; /* Center action buttons */
+    }
+    /* .recruiter-button is hidden on small screens due to d-none d-lg-block */
+    .custom-navbar-dark .navbar-toggler {
+        margin-left: auto; /* Push toggler to right */
+    }
+    .custom-navbar-dark .navbar-brand {
+        margin-right: auto !important; /* Push brand to left */
+    }
+}
+
+/* Main Content Sections (Keep these as they are) */
+main {
+    flex-grow: 1;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+}
+
+section {
+    background-color: white;
+    padding: 2.5rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    margin-bottom: 2rem;
+}
+
+.hidden-section {
+    display: none;
+}
+
+.active-section {
+    display: block;
+}
+
+/* Job Listings Specific Styles */
+#job-listings-section h2 {
+    text-align: center;
+    color: #183153;
+    margin-bottom: 2rem;
+    font-size: 2rem;
+}
+
+#filters {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 2rem;
+    padding: 1rem;
+    background-color: #e9ecef;
+    border-radius: 8px;
+}
+
+#filters label {
+    margin-right: 10px;
+    font-weight: bold;
+    color: #555;
+}
+
+#filters select {
+    padding: 0.6rem 1rem;
+    border: 1px solid #ced4da;
+    border-radius: 5px;
+    font-size: 1rem;
+    background-color: white;
+    cursor: pointer;
+}
+
+#filters select:focus {
+    outline: none;
+    border-color: #28a745;
+    box-shadow: 0 0 0 0.2rem rgba(40, 167, 69, 0.25);
+}
+
+#job-listings-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 1.8rem;
+}
+
+.job-card {
+    background-color: #fff;
+    border: 1px solid #e0e0e0;
+    border-radius: 10px;
+    padding: 1.5rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.job-card:hover {
+    transform: translateY(-7px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+}
+
+.job-card h3 {
+    margin-top: 0;
+    color: #28a745;
+    font-size: 1.5rem;
+    margin-bottom: 0.75rem;
+}
+
+.job-card p {
+    margin-bottom: 0.6rem;
+    color: #555;
+    font-size: 0.95rem;
+}
+
+.job-card .excerpt {
+    font-style: italic;
+    color: #777;
+    font-size: 0.85rem;
+    margin-top: 1rem;
+    flex-grow: 1;
+}
+
+#loading-indicator {
+    text-align: center;
+    grid-column: 1 / -1;
+    font-style: italic;
+    color: #777;
+    padding: 2rem;
+    font-size: 1.1rem;
+}
+
+/* Job Details Specific Styles */
+#job-details-section h2 {
+    color: #183153;
+    margin-bottom: 1rem;
+    font-size: 2.2rem;
+}
+
+#job-details-section .back-button {
+    background-color: #6c757d;
+    color: white;
+    border: none;
+    padding: 0.7rem 1.2rem;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-bottom: 1.5rem;
+    transition: background-color 0.3s ease;
+}
+
+#job-details-section .back-button:hover {
+    background-color: #5a6268;
+}
+
+#job-detail-content {
+    background-color: #f9f9f9;
+    padding: 2rem;
+    border-radius: 8px;
+    border: 1px solid #eee;
+}
+
+#job-detail-content p {
+    margin-bottom: 0.8rem;
+    line-height: 1.7;
+    font-size: 1rem;
+}
+
+#job-detail-content .detail-label {
+    font-weight: 600;
+    color: #444;
+}
+
+#job-detail-content h3 {
+    color: #333;
+    margin-top: 1.5rem;
+    margin-bottom: 0.8rem;
+    font-size: 1.6rem;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 0.5rem;
+}
+
+#job-detail-content ul {
+    list-style-type: disc;
+    margin-left: 20px;
+    margin-bottom: 1rem;
+}
+
+#job-detail-content ul li {
+    margin-bottom: 0.5rem;
+}
+
+#job-detail-content .apply-button {
+    display: inline-block;
+    background-color: #007bff;
+    color: white;
+    padding: 1rem 2rem;
+    border-radius: 8px;
+    text-decoration: none;
+    margin-top: 2rem;
+    font-size: 1.1rem;
+    font-weight: bold;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+#job-detail-content .apply-button:hover {
+    background-color: #0056b3;
+    transform: translateY(-2px);
+}
+
+
+/* Job Post Form Specific Styles */
+#post-job-section h2 {
+    text-align: center;
+    color: #183153;
+    margin-bottom: 2rem;
+    font-size: 2rem;
+}
+
+#job-post-form label {
+    display: block;
+    margin-bottom: 0.6rem;
+    font-weight: bold;
+    color: #444;
+}
+
+#job-post-form input[type="text"],
+#job-post-form input[type="number"],
+#job-post-form input[type="url"],
+#job-post-form textarea,
+#job-post-form select {
+    width: calc(100% - 22px);
+    padding: 12px;
+    margin-bottom: 1.2rem;
+    border: 1px solid #ced4da;
+    border-radius: 5px;
+    font-size: 1rem;
+    box-sizing: border-box;
+}
+
+#job-post-form textarea {
+    resize: vertical;
+    min-height: 80px;
+}
+
+#job-post-form input:focus,
+#job-post-form textarea:focus,
+#job-post-form select:focus {
+    outline: none;
+    border-color: #28a745;
+    box-shadow: 0 0 0 0.2rem rgba(40, 167, 69, 0.25);
+}
+
+#job-post-form .salary-inputs {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1.2rem;
+}
+
+#job-post-form .salary-inputs label,
+#job-post-form .salary-inputs input {
+    flex: 1;
+    margin-bottom: 0;
+}
+#job-post-form .salary-inputs input {
+    width: auto;
+}
+
+
+#job-post-form button[type="submit"] {
+    background-color: #28a745;
+    color: white;
+    border: none;
+    padding: 1.1rem 2.5rem;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-top: 1.5rem;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    width: 100%;
+}
+
+#job-post-form button[type="submit"]:hover {
+    background-color: #218838;
+    transform: translateY(-2px);
+}
+
+.message-box {
+    margin-top: 1.5rem;
+    padding: 1rem;
+    border-radius: 8px;
+    font-weight: bold;
+    text-align: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.message-box.active {
+    opacity: 1;
+}
+
+.success-message {
+    background-color: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+}
+
+.error-message {
+    background-color: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+}
+
+/* Footer Styling (Keep these as they are) */
+footer {
+    background-color: #343a40;
+    color: white;
+    padding: 1.5rem 0;
+    text-align: center;
+    margin-top: auto;
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.2);
+}
+
+footer p {
+    margin: 0.5rem 0;
+    font-size: 0.9rem;
+}footer p {
+    margin: 0.5rem 0;
+    font-size: 0.9rem;
+}
+
+/* About Section Styling */
+#about-section {
+    background: linear-gradient(135deg, #f0f2f5 60%, #d1d5db 100%);
+    padding: 2.5rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+#about-section h2 {
+    color: #183153;
+    font-size: 2rem;
+    margin-bottom: 1.2rem;
+    font-weight: 700;
+}
+
+#about-section p {
+    color: #444;
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+    line-height: 1.7;
+}
+
+/* Job badges */
+.badge {
+    padding: 0.4rem 0.8rem;
+    border-radius: 15px;
+    font-size: 0.8rem;
+    margin-right: 0.5rem;
+}
+
+.badge-type {
+    background-color: #007bff;
+    color: white;
+}
+
+.badge-level {
+    background-color: #28a745;
+    color: white;
+}
+
+.badge-skill {
+    background-color: #6c757d;
+    color: white;
+    margin: 0.2rem;
+}
+
+/* Company cards */
+.company-card {
+    transition: transform 0.2s ease;
+}
+
+.company-card:hover {
+    transform: translateY(-5px);
+}
+
+.skills-tags {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+/* Company logo styles */
+.company-logo {
+    max-height: 60px;
+    object-fit: contain;
+}
+
+.company-logo-detail {
+    max-height: 80px;
+    object-fit: contain;
+    margin-bottom: 1rem;
+}
+
+.job-detail-header {
+    text-align: center;
+    margin-bottom: 2rem;
+    padding-bottom: 1rem;
+    border-bottom: 2px solid #eee;
+}
+
+.company-name-detail {
+    font-size: 1.2rem;
+    color: #666;
+    margin-bottom: 1rem;
+}
