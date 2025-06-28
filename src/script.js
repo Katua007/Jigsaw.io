@@ -165,7 +165,7 @@ async function handleJobPost(event) {
     }
 }
 
-// Event Listeners
+
 if (navPostJobButton) {
     navPostJobButton.addEventListener('click', () => {
         showSection('post-job-section');
@@ -201,7 +201,7 @@ if (jobPostForm) {
     jobPostForm.addEventListener('submit', handleJobPost);
 }
 
-// Skill clicks
+
 document.addEventListener('click', (e) => {
     if (e.target.classList.contains('skill-item') || e.target.closest('.skill-item')) {
         const skillItem = e.target.classList.contains('skill-item') ? e.target : e.target.closest('.skill-item');
